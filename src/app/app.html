@@ -1,0 +1,46 @@
+<!-- <h1>{{title()}}</h1> -->
+<app-head-bar></app-head-bar>
+<main>
+  <section class="hero" id="home">
+    <div class="hero-copy">
+      <span class="eyebrow">PREMIUM CARS · YOUR NEXT JOURNEY</span>
+      <h1>FIND YOUR PERFECT DRIVE.</h1>
+      <p>Discover a collection of cars selected for every journey.</p>
+      <button class="primary-button" (click)="scrollToCars()">Explore Cars <span aria-hidden="true">→</span></button>
+    </div>
+    <div class="hero-visual"><img src="images/CLASS-C.webp" alt="Mercedes-Benz C-Class" /></div>
+  </section>
+
+  <section class="catalog-section" id="cars">
+    <div class="section-heading"><div><span class="eyebrow">OUR COLLECTION</span><h2>Available Cars</h2></div><p>Find the one that fits your style.</p></div>
+    <app-search-bar [autos]="autoList" [favoriteIds]="favoriteIds"
+     (onSelectCar)="selectCar($event)"
+     (onToggleFavorite)="toggleFavorite($event)">
+    </app-search-bar>
+  </section>
+
+  <section class="about-section" id="about">
+    <div class="about-photo"><img src="images/Q5.webp" alt="Audi Q5" loading="lazy" /></div>
+    <div class="about-copy"><span class="eyebrow">ABOUT US</span><h2>DRIVING<br>YOUR DREAMS.</h2>
+      <p>At Velora Motors, we believe every journey begins with the perfect car. Explore our collection and discover the vehicle that feels right for you.</p>
+      <a href="#cars" class="primary-button">Discover our cars →</a>
+    </div>
+  </section>
+
+</main>
+<footer><div class="footer-logo">VELORA <small>MOTORS</small></div><p>Driven by passion</p><p>Designed & developed by Syrine Belkhhiria </p></footer>
+
+@if(selectedCar){
+  <div class="modal-backdrop" (click)="closeDetails()">
+    <section class="modal" role="dialog" aria-modal="true" aria-label="Car details" (click)="$event.stopPropagation()">
+      <button class="modal-close" type="button" (click)="closeDetails()" aria-label="Close details">×</button>
+      <img [src]="'images/' + selectedCar.photo" [alt]="selectedCar.brand + ' ' + selectedCar.model" />
+      <h2>{{selectedCar.brand}} {{selectedCar.model}}</h2>
+      <div class="modal-specs"><span>Brand: {{selectedCar.brand}}</span><span>Model: {{selectedCar.model}}</span>
+        <span>Power: {{selectedCar.power}}</span><strong>Price: {{selectedCar.price}} DNT</strong><span>Stock: {{selectedCar.availability}} available</span>
+      </div>
+      <p>{{selectedCar.description}}</p>
+      <button class="primary-button modal-action" (click)="closeDetails()">Close</button>
+    </section>
+  </div>
+}

@@ -1,0 +1,182 @@
+.filters{
+    display:grid;
+    grid-template-columns:1.35fr 1fr 1.1fr 1fr;
+    gap:16px;
+    align-items:end;
+    margin:26px 0 12px}
+
+.container,.filter-item{
+    display:flex;
+    flex-direction:column;
+    gap:9px}
+    
+.filters label{
+    font-size:11px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    font-weight:700;
+    color:#876e68}
+    
+.search-input{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:#fff;
+    border:1px solid #e9ddd4;
+    border-radius:13px;
+    padding:0 14px}
+    
+.search-input input{
+    min-width:0;
+    width:100%;
+    border:0;
+    outline:none;
+    padding:13px 0;
+    font:inherit;
+    background:transparent}
+    
+.search-input fa-icon{
+    color:#4d0e13}
+    
+.filter-item select{
+    width:100%;
+    background:#fff;
+    border:1px solid #e9ddd4;
+    border-radius:13px;
+    padding:13px;
+    color:#392e2c;
+    font:inherit}
+    
+.price-filter input{
+    accent-color:#4d0e13;
+    height:44px;
+    width:100%}
+    
+.results-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:#8c7770;
+    font-size:12px;
+    margin:16px 0}
+    
+.reset-button{
+    border:0;
+    background:none;
+    color:#4d0e13;
+    text-decoration:underline;
+    cursor:pointer;
+    font:inherit}
+    
+.cars-container{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:22px}
+    
+.auto-card{
+    background:#fff;
+    border:1px solid #eee4da;
+    border-radius:18px;
+    padding:12px;
+    box-shadow:0 12px 26px rgba(77,14,19,.055);
+    transition:transform .2s,box-shadow .2s}
+    
+.auto-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 17px 30px rgba(77,14,19,.12)}
+    
+.car-image{
+    height:190px;
+    background:#f0e9e3;
+    border-radius:12px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center}
+    
+.car-image img{
+    width:100%;
+    height:100%;
+    object-fit:contain}
+    
+.details{padding:12px 8px 5px}
+
+.details h3{
+    font-family:Georgia,serif;
+    font-size:20px;
+    color:#3d2427;
+    margin:0 0 12px}
+    
+.details h3 span{display:block}
+
+.details p{
+    font-size:13px;
+    line-height:1.7;
+    margin:0 0 8px}
+    
+.details strong{color:#78252e}
+
+.stock{display:flex;
+    align-items:center;
+    gap:7px;
+    color:#49694a}
+    
+.stock-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#479a5c}
+    
+.see_more{padding:5px 8px 10px}
+.see_more button{
+    width:100%;
+    background:#a7767a;
+    color:#fff;
+    border:0;
+    border-radius:30px;
+    padding:11px 12px;
+    font:inherit;
+    font-size:12px;
+    cursor:pointer}
+    
+.see_more button:hover{background:#4d0e13}
+.no-results{
+    grid-column:1/-1;
+    padding:40px;
+    text-align:center}
+    
+@media(max-width:900px){
+    .filters{grid-template-columns:repeat(2,1fr)}
+    .cars-container{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    
+@media(max-width:560px){
+    .filters{grid-template-columns:1fr}
+    .cars-container{grid-template-columns:1fr}
+    .car-image{height:220px}}
+
+/* Bouton favoris */
+.favorite-btn {
+  background: white;
+  border: 1px solid #EEE4DA;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 22px;
+  color: #4D0E13;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+/* Voiture ajoutée aux favoris */
+.favorite-btn.is-favorite {
+  color: #4D0E13;
+  background-color: #EEE4DA;
+}
+
+/* Effet au passage de la souris */
+.favorite-btn:hover {
+  transform: scale(1.1);
+}

@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+:root{font-family:Arial,Helvetica,sans-serif;color:#37292b;background:#faf6f1;scroll-behavior:smooth}*{box-sizing:border-box}
+body{margin:0}
+button,input,select,textarea{font-family:inherit}
+button{cursor:pointer}
+a{color:inherit}
+h1,h2,h3,p{overflow-wrap:break-word}

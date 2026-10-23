@@ -1,0 +1,42 @@
+<!-- <p>search-bar works!</p> -->
+<div class="filters">
+  <div class="container">
+    <label for="brand-search">Search</label>
+    <div class="search-input"><input id="brand-search" type="text" #brand placeholder="Search brand or model..." [value]="searchText" (input)="selectAutos(brand.value)">
+        <fa-icon [icon]="faMagnifyingGlass" />
+    </div>
+  </div>
+  <div class="filter-item"><label for="brand-filter">Brand</label><select id="brand-filter" #brandFilter [value]="selectedBrand" (change)="changeBrand(brandFilter.value)">
+    <option value="">All Brands</option>@for(item of brands; track item){<option [value]="item">{{item}}</option>}</select>
+  </div>
+  <div class="filter-item price-filter"><label for="price-filter">Max Price: {{maxPrice}} DNT</label>
+    <input id="price-filter" type="range" min="100" max="750" step="5" [value]="maxPrice" #priceFilter (input)="changePrice(priceFilter.value)" />
+  </div>
+  <div class="filter-item"><label for="sort-filter">Sort by</label><select id="sort-filter" #sortFilter [value]="sortOrder" (change)="changeSort(sortFilter.value)">
+    <option value="default">Featured</option><option value="asc">Price: Low to High</option><option value="desc">Price: High to Low</option>
+    <option value="brand">Brand: A to Z</option></select>
+  </div>
+</div>
+<div class="results-row"><span>{{selectedAutos.length}} cars found</span><button class="reset-button" type="button" (click)="resetFilters()">Reset filters</button></div>
+<div class="cars-container">
+    <!-- // terme decorateur avec@   -->
+    @for(auto of selectedAutos; track auto.id) {
+        <article class="auto-card">
+             <!-- ${}cree une chaine de carac qui contient des partie fixes et des parties dynamique -->
+              <button
+                type="button"
+                class="favorite-btn"
+                [class.is-favorite]="favoriteIds.includes(auto.id)"
+                (click)="toggleFavorite(auto.id)">
+                {{ favoriteIds.includes(auto.id) ? '♥' : '♡' }}
+              </button>
+            <div class="car-image"><img [src]="'images/' + auto.photo" [alt]="auto.brand + ' ' + auto.model" loading="lazy"></div>
+            <div class="details">
+                <h3>{{auto.brand}} <span>{{auto.model}}</span></h3>
+                <p>Power: {{auto.power}}<br><strong>Price: {{auto.price}} DNT</strong></p>
+                <p class="stock"><span class="stock-dot"></span>{{auto.availability}} in stock</p>
+            </div>
+            <div class="see_more"><button type="button" (click)="selectCar(auto)">View Details <span aria-hidden="true">→</span></button></div>
+        </article>
+    } @empty {<p class="no-results">No cars match your search. Try adjusting your filters.</p>}
+</div>
