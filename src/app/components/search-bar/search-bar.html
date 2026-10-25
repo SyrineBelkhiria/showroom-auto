@@ -36,7 +36,7 @@
                 <p>Power: {{auto.power}}<br><strong>Price: {{auto.price}} DNT</strong></p>
                 <p class="stock"><span class="stock-dot"></span>{{auto.availability}} in stock</p>
             </div>
-            <div class="see_more"><button type="button" (click)="selectCar(auto)">View Details <span aria-hidden="true">→</span></button></div>
+            <div class="see_more"><button type="button" (click)="selectCar(auto)">See more ... <span aria-hidden="true"></span></button></div>
         </article>
     } @empty {<p class="no-results">No cars match your search. Try adjusting your filters.</p>}
 </div>

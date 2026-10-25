@@ -2,9 +2,8 @@ import { Component } from '@angular/core';
 import { HeadBar } from './components/head-bar/head-bar';
 import { SearchBar } from './components/search-bar/search-bar';
 import { Auto } from './interfaces/auto';
-import { FormsModule } from '@angular/forms';
 @Component({
-  imports: [ HeadBar, SearchBar, FormsModule],
+  imports: [HeadBar, SearchBar],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
